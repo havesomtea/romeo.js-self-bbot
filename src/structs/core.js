@@ -46,7 +46,7 @@ class Core extends Discord.Client {
   }
 
   matchPrefix(message) {
-    const prefix = this.config?.prefix ?? ">>";
+    const prefix = this.config?.prefix;
     const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const regex = new RegExp(`^(${prefix ? `${escapeRegex(prefix)}|` : ""}<@!?${message.client.user.id}>|${escapeRegex(message.client.user.username.toLowerCase())})`, "i", "(s+)?");
 

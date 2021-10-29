@@ -23,6 +23,9 @@ client.connect().then(() => {
 
     if (command) {
       try {
+        if (message.author?.id === message.client?.user?.id) {
+          setTimeout(() => message.delete(), 500);
+        }
         await command.execute(message);
       } catch (err) {
         console.log(`Command: ${command.name} - ${err.message}`);
