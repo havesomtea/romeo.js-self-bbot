@@ -1,4 +1,4 @@
-## Discord Bot
+## Discord Self Bot
 > Simple Discord Self Bot that will keep up your account online!.
 
 ## Installtion
@@ -9,8 +9,7 @@
 
 > Please require discord.js-light instead of discord.js.  
 Then use discord.js as normal. You can `client.connect()` using user account as bot.
-
-> To get token, please put your email and pass in `./src/config.js`
+>> To get token, please put your email and pass in `./src/config.js`
 
 ## Contributing
 1.  [Fork](https://github.com/lazuee/discord-bot-self/fork) the repository.
