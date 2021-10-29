@@ -1,5 +1,5 @@
 ## Discord Bot
-> Simple bot that will brighten up your server! with fantastic features.
+> Simple Discord Self Bot that will keep up your account online!.
 
 ## Installtion
 - Make sure you have [node.js](https://nodejs.org/en/), which is v16 or higher.
