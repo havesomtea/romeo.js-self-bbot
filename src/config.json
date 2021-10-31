@@ -2,5 +2,9 @@
   "token": "",
   "email": "",
   "password": "",
-  "prefix": ""
+  "prefix": "<PREFIX>",
+  "message": {
+    "guild": "<GUILD_ID>",
+    "channel": "<CHANNEL_ID>"
+  }
 }

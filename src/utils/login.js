@@ -2,6 +2,7 @@ const axios = require("axios").default;
 const base64 = require("js-base64");
 const useragent = require("useragent");
 const RandomAgent = require("user-agents");
+const Captcha = require("2captcha");
 
 const agent = new RandomAgent().toString();
 const parsed = useragent.parse(agent);
@@ -28,13 +29,18 @@ function makeSuperProperties() {
 }
 
 module.exports = async (config = {}) => {
+  /**const captchaSolver = new Captcha.Solver("<YOUR-API-KEY>");
+  const { data } = await captchaSolver.hcaptcha(
+  "f5561ba9-8f1e-40ca-9b5b-a0b3f719ef34",
+  "https://discord.com/api/v8/auth/login"
+  );*/
   //const token = config.token;
   const email = config.email;
   const password = config.password;
   const res = await axios.post(
     "https://discord.com/api/v8/auth/login",
     {
-      captcha_key: null,
+      captcha_key: null,//data,
       gift_code_sku_id: null,
       login: email,
       login_source: null,

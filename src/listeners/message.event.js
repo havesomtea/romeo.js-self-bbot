@@ -1,22 +1,17 @@
-const Core = require("./structs/core.js");
-const client = new Core();
-
-client.connect().then(() => {
-  client.on("ready", async () => {
-    console.log(`Logged as ${client.user.username} (${client.user.id})`);
-    console.log(`Time: ${new Date().toTimeString()}`);
-    (new (require("./structs/api.js"))(client));
-  });
-  
-  client.on("message", async (message) => {
+module.exports = {
+  execute: async (client,message) => {
     if (message.author?.bot) return;
-    if (!message.channel.permissionsFor(message.client?.user).has("SEND_MESSAGES")) return;
+    if (message?.channel?.type === "text" || message?.guild) {
+      if (!message.channel.permissionsFor(message.guild.me).has("SEND_MESSAGES")) return console.log("I dont have permissions to send message");
+    } else {
+      console.log("someone messaging in your dm's")
+    }
 
     const prefix = (await client.matchPrefix(message));
     if (prefix) {
       message.args = message.content.slice(prefix.length).trim().split(/ +/g);
       message.commandName = message.args.shift().toLowerCase();
-    } else if (message.mentions.users.first()?.id === message.client.user.id) {
+    } else if (message.mentions.users.first()?.id === client.user?.id) {
       message.args = message.content.trim().split(/ +/g);
       message.commandName = message.args.shift().toLowerCase();
     }
@@ -35,8 +30,5 @@ client.connect().then(() => {
         console.log(`Command: ${command.name} was ran by ${message.author.tag} ${!message?.guild ? "in DM's" : `in guild: ${message.guild?.name} (${message.guild?.id})`}`);
       }
     }
-  });
-}).catch((err) => {
-  console.log(err);
-  process.exit(1);
-});
+  }
+};
