@@ -10,7 +10,8 @@
 
 > Please require discord.js-light instead of discord.js.  
 Then use discord.js as normal. You can `client.connect()` using user account as bot.
->> To get token, please put your email and pass in `./src/config.json`
+>> To get token, please put your email and pass in `./src/config.json` 
+
 >> Note: Dont try to make or add "Mass DM" in your command, because it easy to detect that your using selfbot!
 
 ## Contributing
